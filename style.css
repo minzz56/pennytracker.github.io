@@ -1,3 +1,186 @@
-.class{
+
+:root{
+    --box-shadow: 0px 1px 4px 1px rgb(20, 15, 15);
+}
+
+
+body{
     
+font-family: 'Nunito', sans-serif;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+}
+.app h1{
+    font-size: 5em;
+}
+ h2{
+    font-size: 1.5em;
+}
+.target-container{
+    font-size: 1.3em;
+ box-shadow: var(--box-shadow);
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   margin-top: 20px;
+   border-right: 9px solid #cccccc;
+   border-left:9px solid #cccccc; 
+   border-radius: 1.1em;
+   }
+   .saved-container{
+    font-size: 1.3em;
+ box-shadow: var(--box-shadow);
+   align-items: center;
+   justify-content: center;
+   margin-top: 20px;
+   text-align: center;
+   border-right: 9px solid #cccccc;
+   border-left: 9px solid #cccccc;;
+   border-radius: 1.1em;
+  }
+  #target,#pennysaved{
+      font-size: 1em;
+  }
+  #target{
+      font-size: x-large;
+      background-color:orangered;
+      display: inline-block;
+      color:ivory;
+      padding: 1.1em;
+      border-radius: 3em;
+  }
+  #pennysaved{
+    display: inline-block;
+    color: ivory;
+    padding: 1.1em;
+    border-radius: 3em;
+      background-color: green;
+  }
+  
+  .Balance-container {
+      font-size: 2em;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      border-right: 9px solid #cccccc;
+   border-left:9px solid #cccccc; 
+   border-radius: 1.1em;
+  }
+  #balance{
+      font-size: 1.2em;
+      background-color: seagreen;
+      padding-bottom: 20px;
+      display: inline-block;
+     color: ivory;
+      border-radius: 3em;
+     padding: 1.1em;
+  }
+  .Cashflow{
+      display: flex;
+      box-shadow :var(--box-shadow);
+      align-content: center;
+      justify-content: center;
+      padding-bottom: 20px;
+      padding-top: 20px;
+      margin-top: 20px;
+      border-right: 9px solid #cccccc;
+   border-left:9px solid #cccccc; 
+   border-radius: 1.1em;
+  }
+ .income-container{
+border-right: 2px solid #cccccc;
+padding-right: 20px;
+font-size: 1.4em;
+ }
+ .expense-container{
+     padding-left: 20px;
+     font-size: 1.4em;
+ }
+ #income,#expense{
+     font-size: 1em;
+     display: inline-block;
+     color: ivory;
+     border-radius: 2.5em;
+     padding: 1em;
+ }
+ #income{
+     background-color: green;
+ }
+ #expense
+{
+    background-color: red;
+}
+#transaction{
+    list-style-type:none;
+    margin:0;
+    padding: 0;
+    border-right: 11px solid #cccccc;
+   border-left:11px solid #cccccc; 
+   border-radius: 1em;
+}
+#transaction li{
+    display: flex;
+    flex-direction: row;
+   justify-content: space-evenly;
+   padding: 20px;
+   margin-bottom: 10px;
+   box-shadow: var(--box-shadow);
+   font-size: 1.5em;
+   color: black;
+}
+#transaction li span {
+    display: inline-block;
+    color: ivory;
+    border-radius: 3em;
+    padding: 5px;
+
+}
+#transaction li .income-amt{
+    
+    background-color: green;
+    
+}
+#transaction li .expense-amt{
+    
+    background-color: red;    
+    
+}
+#transaction li button {
+    padding: 5px 10px 5px 10px;
+}
+.form-container form{
+    display: flex;
+    flex-direction:column;
+    
+}
+.form-container form label {
+    padding-bottom: 3px;
+    font-size: 2em;
+}
+.form-container form input{
+    height: 25px;
+    margin-bottom: 17px;
+    
+}
+.form-container form button{
+    border: none;
+    padding: 2em;
+    margin-bottom: 4px;
+   text-transform: uppercase;
+    color: ivory;
+    display: inline-block;
+     font-size: 1em;
+    border-radius: 2.5em;
+     padding: 1em;
+      
+}
+#incomebtn{
+    background-color: green;
+}
+#expensebtn{
+    background-color: red;
 }
