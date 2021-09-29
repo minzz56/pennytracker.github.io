@@ -1,107 +1,83 @@
-<html>
-    <head>
-        <title> PENNY TRACKER></title>
-        <link  rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@300&family=Nunito:wght@900&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PENNY TRACKER</title>
 
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Gluten:wght@300&family=Nunito:wght@900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="app">
+            <div class="tittle">
+                <h1 style="text-align: center">&#128176;<u>PENNY TRACKER</u></h1>
+				<h3>“Do not save what is left after spending; instead spend what is left after saving.” ― Warren Buffett</h3>
+            </div>
+			<div class="target-container">
+				<div>
+					<h2>&#128272;TARGET</h2>
+				</div>
 
-<style>
-    body{
-        background-image: url("https://cdn.cdnparenting.com/articles/2019/06/19103602/Piggy-Banks.webp");
-        background-repeat: no-repeat;
-        background-size: 219%;
-    }
-</style>
- </head>
-    <body >
-    
-    <div class="app">
+				
+					
+						<input id="submit" type="text" />
+						<button id="submit" onClick="showtarget()">Submit</button>
+						<p id="demo"></p>
+				
+				
+			</div>
+			<div class="saved-container">
+				<h2>&#128524;PENNY SAVED</h2>
+				<div id="pennysaved">$18000</div>
+			</div>
 
-            <h1 style="text-align: center;">&#128176;<u>PENNY TRACKER</u></h1>
-           
-            <div class="target-container">
-                <h2>&#128272;TARGET</h2>
-                <div id="target">$25000</div>
-            </div>
-                <div class="saved-container">
-                    <h2>&#128524;PENNY SAVED</h2>
-                    <div id="pennysaved">$18000</div>
-                </div>
-        
-            <header>
-                <nav>
-                    <p style="float: center; font-size: 1.3em; ">
-                       <p><a href= "#">&#128197;JANUARY</a></p>
-                       <p><a href= "#">&#128197;FEBRUARY</a></p>
-                      <p> <a href= "#">&#128197;MARCH</a></p>
-                    <p> <a href= "#">&#128197;APRIL</a></p>
-                <p><a href= "#">&#128197;MAY</a></p>
-                <p><a href= "#">&#128197;JUNE</a></p>
-                <p> <a href= "#">&#128197;JULY</a></p>
-               <p><a href= "#">&#128197;AUGUST</a></p>
-               <p> <a href= "#">&#128197;SEPTEMBER</a></p>
-            <p> <a href= "#">&#128197;OCTOBER</a></p>
-             <p> <a href= "#">&#128197;NOVEMBER</a></p>
-          <p><a href= "#">&#128197;DECEMBER</a></p>
-                    </p>
-        
-                </nav>
-    
-            </header>
-            <div class="Balance-container">
-                <h2>&#128226;YOUR BALANCE</h2>
-              <div id="balance">$1000</div>
-            </div>
+			<div class="Balance-container">
+				<h2>&#128226;YOUR BALANCE</h2>
+				<div id="balance">$1000</div>
+			</div>
 
-            <div class="Cashflow">
-                <div class="income-container">
-                  <h2>&#128178; INCOME</h2>
-                  <div id="income">$1200</div>
-                </div>
-                <div class="expense-container">
-                    <h2>&#128680;EXPENSE</h2>
-                  <div id="expense">$200</div>                   
-                </div>
-            </div>
-            <div class="transaction-container">
-                <h2> &#128203;&#128204;TRANSACTION HISTORY</h2>
-                <ul id="transaction">
-                    <li>
-                        Salary
-                        <div>
-                            <span class="income-amt">$5000</span>
-                            <button>X</button>
-                        </div>
-                    </li>
-                    <li>
-                         Grocery
-                        <div>
-                            <span class="expense-amt">$50</span>
-                            <button>X</button>
-                        </div>
-                    </li style="">
-                    <li>
-                         Book
-                        <div>
-                            <span class="expense-amt">$50</span>
-                            <button>X</button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="form-container">
-                <h2>&#128172; NEW PENNY TRANSACTION</h2>
-                <form>
-                    <label for="name"> Name</label>
-                    <input id="name" type="text">
-                    <label for="amount">Amount</label>
-                    <input id="amount" type="number">
-                    <button id="incomeBtn">Add &#128178; </button>
-                    <button id="expenseBtn">Add &#128680; </button>
-                </form>
-            </div>
-        </div>
-    </body>
+			<div class="Cashflow">
+				<div class="income-container">
+					<h2>&#128178; INCOME</h2>
+					<div id="income">$1200</div>
+				</div>
+				<div class="expense-container">
+					<h2>&#128680;EXPENSE</h2>
+					<div id="expense">$200</div>
+				</div>
+			</div>
+			<div class="transaction-container">
+				<h2>&#128203;&#128204;TRANSACTION HISTORY</h2>
+				<ul id="transaction"></ul>
+			</div>
+			<div class="form-container">
+				<h2>&#128172; NEW PENNY TRANSACTION</h2>
+				<form onsubmit="return false;">
+					<label for="name"> Name</label>
+					<input id="name" type="text" />
+					<label for="amount">Amount</label>
+					<input id="amount" type="number" />
+					<label for="date"
+						>DATE:
+						<div class="calDiv">
+							<input class="calender" id="date" type="date" />
+						</div>
+					</label>
+					<div class="btnCenter">
+						<button class="incButton" id="incomeBtn">Add &#128178;</button>
+						<button class="expButton" id="expenseBtn">Add &#128680;</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
 </html>
