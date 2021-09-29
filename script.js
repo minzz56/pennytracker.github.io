@@ -1,5 +1,5 @@
 var state = {
-	 target: 0,
+	// target: 1000,
 	pennysaved: 400,
 	balance: 100,
 	income: 100,
@@ -18,7 +18,6 @@ var incomeBtnEl = document.querySelector("#incomeBtn");
 var expenseBtnEl = document.querySelector("#expenseBtn");
 var nameInputEl = document.querySelector("#name");
 var amountInputEl = document.querySelector("#amount");
-//var submitEl=document.querySelector("#submit");
 
 function init() {
 	console.log("hello");
@@ -38,8 +37,6 @@ function uniqueId() {
 function initListeners() {
 	incomeBtnEl.addEventListener("click", onAddIncomeClick);
 	expenseBtnEl.addEventListener("click", onAddExpenseClick);
-	//submitEl.addEventListener("click",showTarget);
-	
 }
 
 // adding income and expense
@@ -61,10 +58,11 @@ function onAddExpenseClick() {
 	);
 }
 
- function showTarget(){
-    var x = document.getElementById("submit").value;
+function showtarget() {
+	var x = document.getElementById("submit").value;
 	document.getElementById(
-              "demo").innerHTML = x; }
+              "demo").innerHTML = x;
+}
 
 // adding transaction
 function addTransaction(name, amount, date, type) {
@@ -76,6 +74,14 @@ function addTransaction(name, amount, date, type) {
 			type: type,
 			date: date,
 		};
+
+		//  let d = new Date(date);
+		//  let date_ = d.getDate();
+		//  let month = d.getMonth();
+		// let year = d.getFullYear();
+		//  console.log(date_);
+
+	    //  console.log(dateCheck(date));
 
 		state.transactions.push(transaction);
 		updateState();
@@ -102,6 +108,38 @@ function onDeleteClick(event) {
 	updateState();
 }
 
+// to check if date is changed or not
+function isNewDay(date_string) {
+	const cur_date = new Date();
+	const date = new Date(date_string);
+	const diff =
+		cur_date.getFullYear() -
+		date.getFullYear() +
+		cur_date.getMonth() -
+		date.getMonth() +
+		cur_date.getDate() -
+		date.getDate();
+	if (diff !== 0) {
+		return true;
+	}
+	return false;
+}
+
+// to update penny saved.
+function calculatePenny(transactions) {
+	let pennysaved = 0;
+	for (let i of transactions) {
+		if (isNewDay(i.date)) {
+			if (i.type === "income") {
+				pennysaved += i.amount;
+			} else if (i.type === "expense") {
+				pennysaved -= i.amount;
+			}
+		}
+	}
+	return pennysaved;
+}
+
 function updateState() {
 	var balance = 0,
 		income = 0,
@@ -120,12 +158,11 @@ function updateState() {
 	}
 
 	balance = income - expense;
-	// pennysaved = balance + pennysaved;
 
 	state.balance = balance;
 	state.income = income;
 	state.expense = expense;
-	// state.pennysaved = pennysaved;
+	state.pennysaved = calculatePenny(state.transactions);
 
 	localStorage.setItem("expenseTrackerState", JSON.stringify(state));
 
